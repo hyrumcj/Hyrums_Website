@@ -1,0 +1,398 @@
+/* ============================================================
+   HYRUM JOHNSON PORTFOLIO — MAIN STYLESHEET (index.html)
+   ============================================================ */
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --off-white:   #f7f5f0;
+    --cream:       #edeae3;
+    --white:       #ffffff;
+    --dark-text:   #1c1c1c;
+    --mid-text:    #4a4a4a;
+    --light-text:  #888880;
+    --accent:      #7b2d2d;   /* deep maroon — pulled from resume palette */
+    --accent-dark: #5a1f1f;
+    --border:      #ddd9d0;
+    --font-serif:  'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-sans:   'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --shadow-sm:   0 1px 4px rgba(0,0,0,0.06);
+    --shadow-md:   0 4px 16px rgba(0,0,0,0.10);
+    --radius:      6px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--off-white);
+    color: var(--dark-text);
+    line-height: 1.65;
+    min-height: 100vh;
+}
+
+/* ── NAVBAR ───────────────────────────────────────────────── */
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 200;
+    background-color: var(--off-white);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    height: 62px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-brand {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    color: var(--dark-text);
+}
+
+.nav-links {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-size: 0.74rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--mid-text);
+    padding-bottom: 3px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+}
+
+.nav-link:hover,
+.nav-link.active {
+    color: var(--accent);
+    border-bottom-color: var(--accent);
+}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+
+.hero {
+    text-align: center;
+    padding: 4rem 2rem 3rem;
+    border-bottom: 1px solid var(--border);
+    background-color: var(--off-white);
+}
+
+.profile-container {
+    width: 168px;
+    height: 168px;
+    margin: 0 auto 1.6rem;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 4px solid var(--accent);
+    box-shadow: var(--shadow-md);
+}
+
+.profile-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 10%;
+    display: block;
+}
+
+.hero-name {
+    font-family: var(--font-serif);
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--dark-text);
+    letter-spacing: 0.02em;
+    margin-bottom: 0.45rem;
+}
+
+.hero-location {
+    font-size: 0.92rem;
+    color: var(--light-text);
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    margin-bottom: 1.4rem;
+}
+
+.linkedin-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background-color: var(--accent);
+    color: #fff;
+    text-decoration: none;
+    padding: 0.65rem 1.5rem;
+    border-radius: var(--radius);
+    font-size: 0.83rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    transition: background-color 0.2s, transform 0.15s, box-shadow 0.2s;
+    box-shadow: var(--shadow-sm);
+}
+
+.linkedin-btn:hover {
+    background-color: var(--accent-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* ── RESUME MAIN ──────────────────────────────────────────── */
+
+.resume-main {
+    max-width: 780px;
+    margin: 2.8rem auto 0;
+    padding: 0 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+/* ── ACCORDION ────────────────────────────────────────────── */
+
+.accordion {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: box-shadow 0.2s;
+}
+
+.accordion[open] {
+    box-shadow: var(--shadow-md);
+}
+
+.accordion-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.05rem 1.4rem;
+    cursor: pointer;
+    list-style: none;
+    user-select: none;
+    font-family: var(--font-serif);
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--dark-text);
+    background-color: #fdfcfa;
+    border-left: 4px solid var(--accent);
+    transition: background-color 0.15s;
+}
+
+.accordion-summary::-webkit-details-marker { display: none; }
+
+.accordion-summary:hover {
+    background-color: var(--cream);
+}
+
+.accordion[open] > .accordion-summary {
+    background-color: var(--cream);
+}
+
+.arrow {
+    color: var(--accent);
+    font-size: 1rem;
+    display: inline-block;
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+}
+
+.accordion[open] .arrow {
+    transform: rotate(180deg);
+}
+
+.accordion-body {
+    padding: 1.3rem 1.6rem 1.5rem;
+    border-top: 1px solid var(--border);
+    animation: fadeSlideDown 0.22s ease;
+}
+
+@keyframes fadeSlideDown {
+    from { opacity: 0; transform: translateY(-8px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+.accordion-body > p {
+    font-size: 0.92rem;
+    color: var(--mid-text);
+    line-height: 1.8;
+}
+
+/* ── SKILLS ───────────────────────────────────────────────── */
+
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    padding: 0;
+}
+
+.skills-list li {
+    background-color: var(--cream);
+    border: 1px solid var(--border);
+    color: var(--mid-text);
+    font-size: 0.83rem;
+    font-weight: 500;
+    padding: 0.38rem 0.9rem;
+    border-radius: 20px;
+}
+
+/* ── EDUCATION ────────────────────────────────────────────── */
+
+.edu-entry {
+    margin-bottom: 1.3rem;
+}
+
+.edu-entry:last-child { margin-bottom: 0; }
+
+.edu-entry h3 {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark-text);
+    margin-bottom: 0.15rem;
+}
+
+.edu-location {
+    font-size: 0.83rem;
+    color: var(--light-text);
+    font-style: italic;
+}
+
+.edu-degree {
+    font-size: 0.88rem;
+    color: var(--mid-text);
+    margin: 0.2rem 0 0.45rem;
+}
+
+.edu-honors {
+    padding-left: 1.3rem;
+    margin-top: 0.3rem;
+}
+
+.edu-honors li {
+    font-size: 0.87rem;
+    color: var(--mid-text);
+    margin-bottom: 0.2rem;
+}
+
+/* ── LANGUAGES ────────────────────────────────────────────── */
+
+.language-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.lang-name {
+    font-weight: 600;
+    font-size: 0.93rem;
+    color: var(--dark-text);
+}
+
+.lang-level {
+    font-size: 0.85rem;
+    color: var(--light-text);
+    font-style: italic;
+}
+
+/* ── EXPERIENCE ───────────────────────────────────────────── */
+
+.exp-entry {
+    padding-bottom: 1.4rem;
+    margin-bottom: 1.3rem;
+    border-bottom: 1px solid var(--border);
+}
+
+.exp-entry:last-child {
+    padding-bottom: 0;
+    margin-bottom: 0;
+    border-bottom: none;
+}
+
+.exp-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.2rem;
+}
+
+.exp-header h3 {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--dark-text);
+}
+
+.exp-title {
+    font-size: 0.87rem;
+    color: var(--accent);
+    font-style: italic;
+}
+
+.exp-title::before {
+    content: '| ';
+    color: var(--border);
+    font-style: normal;
+}
+
+.exp-meta {
+    font-size: 0.81rem;
+    color: var(--light-text);
+    margin-bottom: 0.55rem;
+}
+
+.exp-entry ul {
+    padding-left: 1.3rem;
+}
+
+.exp-entry ul li {
+    font-size: 0.88rem;
+    color: var(--mid-text);
+    margin-bottom: 0.3rem;
+    line-height: 1.65;
+}
+
+/* ── FOOTER ───────────────────────────────────────────────── */
+
+.footer {
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 0.75rem;
+    color: var(--light-text);
+    border-top: 1px solid var(--border);
+    letter-spacing: 0.04em;
+}
+
+/* ── RESPONSIVE ───────────────────────────────────────────── */
+
+@media (max-width: 620px) {
+    .hero { padding: 2.5rem 1.2rem 2rem; }
+    .hero-name { font-size: 2rem; }
+    .nav-inner { padding: 0 1rem; }
+    .nav-brand { font-size: 0.85rem; }
+    .nav-links { gap: 1.2rem; }
+    .resume-main { padding: 0 1rem 3rem; }
+    .accordion-summary { font-size: 0.95rem; }
+}
